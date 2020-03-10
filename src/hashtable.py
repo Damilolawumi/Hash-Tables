@@ -50,16 +50,16 @@ class HashTable:
         index = self._hash_mod(key) # create an index from the hash of the key
         if self.storage[index] is not None: #if storage index is not empty
             current = self.storage[index] #make the current node the strorage index
-            while current.next is not None and current.key is not key:#while current node is not empty and current key is not key 
-                current = current.next
-            if current.key == key:
-                current.value = value
+            while current.next is not None and current.key is not key: # while current node is not empty and current key is not key 
+                current = current.next #go to the next
+            if current.key == key: #if current key is equal to the key we assign the value to current value
+                current.value = value 
                 return
             else:
-                current.next = LinkedPair(key, value)
+                current.next = LinkedPair(key, value) #creates a newnode in the key and value
                 return
-        else:
-            self.storage[index] = LinkedPair(key, value)
+        else: #if the storage is empty
+            self.storage[index] = LinkedPair(key, value) #creates a newnode in the key and value
 
     def remove(self, key):
         '''
