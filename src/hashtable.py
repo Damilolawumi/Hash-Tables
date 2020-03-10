@@ -48,6 +48,7 @@ class HashTable:
         Fill this in.
         '''
         index = self._hash_mod(key) # create an index from the hash of the key
+        
         if self.storage[index] is not None: #if storage index is not empty
             current = self.storage[index] #make the current node the strorage index
             while current.next is not None and current.key is not key: # while current node is not empty and current key is not key 
